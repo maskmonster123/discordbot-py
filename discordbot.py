@@ -100,10 +100,6 @@ async def setTd(ctx):
         await ctx.channel.send(str(ctx.author.mention + "권한이 없습니다."))
         return
     
-    if datetime.now(timezone('Asia/Seoul')).weekday() == 5:
-        await ctx.channel.send("오늘은 거점전이 진행되지 않습니다.")
-        return
-    
     crnt_usr = pd.DataFrame(columns=['name','guild','id'])
     full_num = 0
     np_tdnw = 0
@@ -141,10 +137,6 @@ async def setNw(ctx, arg=None):
     
     if datetime.now(timezone('Asia/Seoul')).weekday() == 5:
         await ctx.channel.send("오늘은 거점전이 진행되지 않습니다.")
-        return;
-    
-    if today_nws['date'].iloc[0] != wd[datetime.now(timezone('Asia/Seoul')).weekday()]:     
-        await ctx.channel.send("오늘의 거점전이 갱신되지 않았습니다. !setTd를 입력하세요")
         return;
     
     if arg == None:
